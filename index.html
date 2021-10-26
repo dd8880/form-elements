@@ -25,11 +25,15 @@
       fieldset:disabled {
         border-color: red;
       }
+
       :valid {
         color: green;
       }
       :invalid {
         color: red;
+      }
+      :disabled {
+        color: initial;
       }
     </style>
   </head>
@@ -159,7 +163,7 @@
           </fieldset>
 
           <fieldset disabled id="forms__select__">
-            <legend>Select menus</legend>
+            <legend>Select menus - disabled</legend>
             <p>
               <label for="select_d">Select</label>
               <select id="select_d">
