@@ -5,6 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Elements</title>
+    <style>
+      form {
+        display: grid;
+
+        gap: 2rem;
+      }
+      @media (min-width: 800px) {
+        form {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      legend {
+        font-weight: bold;
+      }
+      fieldset {
+        border-color: hsl(180, 50%, 50%);
+      }
+    </style>
   </head>
   <body>
     <main>
@@ -59,53 +77,48 @@
             </p>
           </fieldset>
 
-          <fieldset id="forms__input__disabled">
+          <fieldset id="forms__input__disabled" disabled>
             <legend>Input fields - disabled</legend>
             <p>
-              <label for="input__text">Text Input</label>
-              <input disabled id="input__text" type="text" placeholder="Text Input" />
+              <label for="input__text_d">Text Input</label>
+              <input id="input__text_d" type="text" placeholder="Text Input" />
             </p>
             <p>
-              <label for="input__password">Password</label>
+              <label for="input__password_d">Password</label>
               <input
-              disabled 
-                id="input__password"
+                id="input__password_d"
                 type="password"
                 placeholder="Type your Password"
               />
             </p>
             <p>
-              <label for="input__webaddress">Web Address</label>
+              <label for="input__webaddress_d">Web Address</label>
               <input
-              disabled 
-                id="input__webaddress"
+                id="input__webaddress_d"
                 type="url"
                 placeholder="http://yoursite.com"
               />
             </p>
             <p>
-              <label for="input__emailaddress">Email Address</label>
+              <label for="input__emailaddress_d">Email Address</label>
               <input
-              disabled 
-                id="input__emailaddress"
+                id="input__emailaddress_d"
                 type="email"
                 placeholder="name@email.com"
               />
             </p>
             <p>
-              <label for="input__phone">Phone Number</label>
+              <label for="input__phone_d">Phone Number</label>
               <input
-              disabled 
-                id="input__phone"
+                id="input__phone_d"
                 type="tel"
                 placeholder="(999) 999-9999"
               />
             </p>
             <p>
-              <label for="input__search">Search</label>
+              <label for="input__search_d">Search</label>
               <input
-              disabled 
-                id="input__search"
+                id="input__search_d"
                 type="search"
                 placeholder="Enter Search Term"
               />
@@ -126,11 +139,11 @@
             </p>
           </fieldset>
 
-          <fieldset id="forms__select__disabled">
+          <fieldset disabled id="forms__select__">
             <legend>Select menus</legend>
             <p>
-              <label for="select">Select</label>
-              <select disabled id="select">
+              <label for="select_d">Select</label>
+              <select id="select_d">
                 <optgroup label="Option Group">
                   <option>Option One</option>
                   <option>Option Two</option>
@@ -169,14 +182,13 @@
             </ul>
           </fieldset>
 
-          <fieldset id="forms__checkbox__disabled">
+          <fieldset disabled id="forms__checkbox__disabled">
             <legend>Checkboxes - disabled</legend>
             <ul class="list list--bare">
               <li>
-                <label for="checkbox1"
+                <label for="checkbox1_d"
                   ><input
-                  disabled
-                    id="checkbox1"
+                    id="checkbox1_d"
                     name="checkbox"
                     type="checkbox"
                     checked="checked"
@@ -185,14 +197,14 @@
                 >
               </li>
               <li>
-                <label for="checkbox2"
-                  ><input id="checkbox2" disabled name="checkbox" type="checkbox" />
+                <label for="checkbox2_d"
+                  ><input id="checkbox2_d" name="checkbox" type="checkbox" />
                   Choice B</label
                 >
               </li>
               <li>
-                <label for="checkbox3"
-                  ><input id="checkbox3" disabled name="checkbox" type="checkbox" />
+                <label for="checkbox3_d"
+                  ><input id="checkbox3_d" name="checkbox" type="checkbox" />
                   Choice C</label
                 >
               </li>
@@ -229,14 +241,13 @@
             </ul>
           </fieldset>
 
-          <fieldset id="forms__radio__disabled">
+          <fieldset disabled id="forms__radio__disabled">
             <legend>Radio buttons - disabled</legend>
             <ul class="list list--bare">
               <li>
-                <label for="radio1"
+                <label for="radio1_d"
                   ><input
-                  disabled
-                    id="radio1"
+                    id="radio1_d"
                     name="radio"
                     type="radio"
                     class="radio"
@@ -246,14 +257,24 @@
                 >
               </li>
               <li>
-                <label for="radio2"
-                  ><input id="radio2" disabled name="radio" type="radio" class="radio" />
+                <label for="radio2_d"
+                  ><input
+                    id="radio2_d"
+                    name="radio"
+                    type="radio"
+                    class="radio"
+                  />
                   Option 2</label
                 >
               </li>
               <li>
-                <label for="radio3"
-                  ><input id="radio3" disabled name="radio" type="radio" class="radio" />
+                <label for="radio3_d"
+                  ><input
+                    id="radio3_d"
+                    name="radio"
+                    type="radio"
+                    class="radio"
+                  />
                   Option 3</label
                 >
               </li>
@@ -273,13 +294,12 @@
             </p>
           </fieldset>
 
-          <fieldset id="forms__textareas__disabled">
+          <fieldset disabled id="forms__textareas__disabled">
             <legend>Textareas - disabled</legend>
             <p>
-              <label for="textarea">Textarea</label>
+              <label for="textarea_d">Textarea</label>
               <textarea
-                id="textarea"
-                disabled
+                id="textarea_d"
                 rows="8"
                 cols="48"
                 placeholder="Enter your message here"
@@ -311,27 +331,31 @@
             </p>
           </fieldset>
 
-          <fieldset id="forms__html5__disabled">
+          <fieldset id="forms__html5__disabled" disabled>
             <legend>HTML5 inputs - disabled</legend>
             <p>
-              <label for="ic">Color input</label>
-              <input type="color" disabled id="ic" value="#000000" />
+              <label for="ic_d">Color input</label>
+              <input type="color" id="ic_d" value="#000000" />
             </p>
             <p>
-              <label for="in">Number input</label>
-              <input type="number" disabled  id="in" min="0" max="10" value="5" />
+              <label for="_d">Number input</label>
+              <input type="number" id="in_d" min="0" max="10" value="5" />
             </p>
             <p>
-              <label for="ir">Range input</label>
-              <input type="range" disabled  id="ir" value="10" />
+              <label for="ir_d">Range input</label>
+              <input type="range" id="ir_d" value="10" />
             </p>
             <p>
-              <label for="idd">Date input</label>
-              <input type="date" disabled  id="idd" value="1970-01-01" />
+              <label for="idd_d">Date input</label>
+              <input type="date" id="idd_d" value="1970-01-01" />
             </p>
             <p>
-              <label for="idtl">Datetime-local input</label>
-              <input type="datetime-local" disabled  id="idtl" value="1970-01-01T00:00" />
+              <label for="idtl_d">Datetime-local input</label>
+              <input
+                type="datetime-local"
+                id="idtl_d"
+                value="1970-01-01T00:00"
+              />
             </p>
           </fieldset>
 
@@ -341,13 +365,25 @@
               <input type="submit" value="<input type=submit>" />
               <input type="button" value="<input type=button>" />
               <input type="reset" value="<input type=reset>" />
-              <input type="submit" value="<input disabled>" disabled />
             </p>
             <p>
               <button type="submit">&lt;button type=submit&gt;</button>
               <button type="button">&lt;button type=button&gt;</button>
               <button type="reset">&lt;button type=reset&gt;</button>
-              <button type="button" disabled>&lt;button disabled&gt;</button>
+            </p>
+          </fieldset>
+
+          <fieldset id="forms__action__disabled" disabled>
+            <legend>Action buttons - disabled</legend>
+            <p>
+              <input type="submit" value="<input type=submit>" />
+              <input type="button" value="<input type=button>" />
+              <input type="reset" value="<input type=reset>" />
+            </p>
+            <p>
+              <button type="submit">&lt;button type=submit&gt;</button>
+              <button type="button">&lt;button type=button&gt;</button>
+              <button type="reset">&lt;button type=reset&gt;</button>
             </p>
           </fieldset>
         </form>
