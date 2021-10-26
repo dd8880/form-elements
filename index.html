@@ -22,12 +22,31 @@
       fieldset {
         border-color: hsl(180, 50%, 50%);
       }
+      fieldset:disabled {
+        border-color: red;
+      }
+      :valid {
+        color: green;
+      }
+      :invalid {
+        color: red;
+      }
     </style>
   </head>
   <body>
     <main>
       <section id="forms">
         <header><h1>Form elements</h1></header>
+        <div class="controls">
+          <label>
+            <input type="radio" name="required" value="1" /> All fields are
+            required
+          </label>
+          <label>
+            <input type="radio" name="required" value="0" /> No fields are
+            required
+          </label>
+        </div>
         <form>
           <fieldset id="forms__input">
             <legend>Input fields</legend>
@@ -389,5 +408,31 @@
         </form>
       </section>
     </main>
+    <script>
+      let required = localStorage.getItem("required") || "required";
+      const controls = document.querySelectorAll(".controls input");
+      const all = document.querySelectorAll(
+        "form input, textarea, select, form button"
+      );
+      if (required === "required") {
+        all.forEach((el) => (el.required = "required"));
+      } else {
+        all.forEach((el) => (el.required = false));
+      }
+      controls[0].checked = required === "required";
+      controls[1].checked = required === "not required";
+      controls.forEach((inp) => {
+        inp.addEventListener("change", () => {
+          required = inp.value == 0 ? "not required" : "required";
+          console.log(required);
+          localStorage.setItem("required", required);
+          if (required === "required") {
+            all.forEach((el) => (el.required = "required"));
+          } else {
+            all.forEach((el) => (el.required = false));
+          }
+        });
+      });
+    </script>
   </body>
 </html>
